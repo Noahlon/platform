@@ -1,0 +1,92 @@
+body, div, dl, dt, dd, ul, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, button, textarea, p, blockquote, th, td {
+    margin: 0;
+    padding: 0;
+}
+.detail .label{
+    display: flex;
+
+}
+.detail .label *{
+   background-color: #e5efff;
+    padding: 3px 5px;
+    margin-left: 30px;
+    width: 90px;
+    text-align: center;
+    border-radius: 999px;
+    color: #0066ff;
+}
+.detail .top *{
+    margin-top: 12px;
+    margin-bottom: 4px;
+    font-size: 22px;
+    font-weight: 600;
+    margin-left: 25px;
+}
+.detail .button{
+    display: flex;
+}
+.detail .button input{
+    color: #fff;
+    background-color: #06f;
+    display: inline-block;
+    padding: 0 16px;
+    font-size: 14px;
+    line-height: 32px;
+    text-align: center;
+    cursor: pointer;
+    border: 1px solid;
+    border-radius: 3px;
+    margin-top: 20px;
+    margin-left: 25px;
+}
+.detail .button input:first-child{
+    background-color: white;
+    color: #06f;
+}
+
+.detail .button div img{
+    height: 30px;
+    margin-top: 15px;
+}
+.detail .button .content_last{
+    display: flex;
+    margin-left: 180px;
+}
+.detail .button .content_last .contents {
+    margin-top: 8px;
+    margin-left: 30px;
+    display: flex;
+}
+.detail .button .content_last .contents div{
+    margin-top: 20px;
+    margin-left: 5px;
+}
+
+.detail .temp1{
+    height: 25px;
+    background-color: white;
+}
+.detail .temp{
+    height: 10px;
+    background-color: #f6f6f6;
+}
+.detail .text .text_top div{
+    display: -webkit-box;
+    display: -ms-flexbox;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    font-size: 15px;
+    line-height: 1.1;
+    -ms-flex-negative: 0;
+    flex-shrink: 0;
+}
+.detail .text .text_top p {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color: #646464;
+}
+.detail .text .text_top_top,.detail .text .text_center  {
+    padding: 25px 15px;
+}
+

@@ -1,0 +1,93 @@
+body, div, dl, dt, dd, ul, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, button, textarea, p, blockquote, th, td {
+    margin: 0;
+    padding: 0;
+}
+.index_top{
+    margin-top: -20px;
+    width: 100%;
+    height: 60px;
+    position: fixed;
+    background-color: white ;
+    border-bottom: #dadce0 1px solid;
+}
+.head{
+    border-bottom: #dadce0 1px solid;
+    height: 60px;
+    background-color: white ;
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    z-index: 3;
+
+}
+.head .left{
+    flex: 2.5;
+    display: flex;
+}
+.head .left .left_element{
+    color: #8590a6;
+    margin-top: 22px;
+    margin-left: 15px;
+    justify-content: space-around;
+}
+.left_elementHover{
+    border-bottom: #06f 5px solid;
+    padding-bottom: 5px;
+}
+#xueba{
+    padding-right: 20px;
+    margin-top: 10px;
+    font-size: 39px;
+    font-weight: bold;
+    color: #0066ff;
+    font-family: "SimSun";
+}
+
+.head .center{
+    flex: 3;
+    margin-left: 70px;
+}
+
+.head .center .input{
+    width: 80%;
+    text-indent: 20px;
+    border: none;
+    height: 40px;
+    border-radius: 999px;
+    margin: 14px 0px;
+    background-image: url("../../imgs/magnifier.png");
+    background-repeat: no-repeat;
+    background-size: 15px;
+    background-position: 95%;
+    background-color: #f6f6f6;
+}
+
+.head .center .input:focus{
+    outline: none;
+}
+.head .center .button{
+    outline: none;
+    border-radius: 999px;
+    width: 70px;
+    margin-left: 12px;
+    border: none;
+    background-color: #0066ff;
+    color: white;
+    height: 40px;
+
+}
+
+
+.head .right{
+    flex: 1;
+    padding-left: 20px;
+
+}
+.head .right img{
+    float: right;
+    width: 25px;
+    margin-top: 20px;
+    margin-left: 25px;
+}
+
+

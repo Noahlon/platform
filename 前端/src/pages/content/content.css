@@ -1,0 +1,76 @@
+body, div, dl, dt, dd, ul, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, button, textarea, p, blockquote, th, td {
+    margin: 0;
+    padding: 0;
+}
+.margin_top10{
+    margin-top: 10px;
+}
+.content{
+    margin: 0 auto;
+    margin-top: 10px;
+    width: 70%;
+    display: flex;
+    background-color: #f6f6f6;
+}
+.content .left{
+    background-color: white;
+    flex: 2;
+    margin-right: 10px;
+}
+.content .left .timeChoice{
+    display: flex;
+    border-bottom: 1px solid #f0f2f7;
+}
+.content .left .timeChoice *{
+    color: #121212;
+    font-size: 16px;
+    margin: 0 22px;
+    width: 32px;
+    height: 58px;
+    line-height: 58px;
+}
+.content .left .newPost *{
+    color: #121212;
+    font-size: 16px;
+    margin: 0 22px;
+    width: 100px;
+    height: 58px;
+    line-height: 58px;
+}
+.content .right{
+    background-color: #f6f6f6;
+    margin-left: 10px;
+    flex: 1 ;
+}
+.content .right *{
+    background-color: white;
+    border-radius: 5px;
+}
+.content .right .personalCenter{
+    display: flex;
+    padding-bottom: 30px;
+    border-bottom: 1px solid #f0f2f7;
+}
+.content .right .personalCenter *{
+    text-align: center;
+    width: 88px;
+}
+.content .right .personalCenter img{
+    padding: 10px;
+    margin-top: 25px !important;
+    margin: 0 auto !important;
+    width: 100px;
+}
+.content .right .personalCenter * img{
+    flex: 1;
+    width: 40px;
+    margin-top: 30px;
+    text-align: center;
+}
+.content .right .personalCenter * div{
+    font-size: 12px;
+    line-height: 2;
+    text-align: center;
+    color: #444;
+
+}

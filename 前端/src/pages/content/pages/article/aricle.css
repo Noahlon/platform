@@ -1,0 +1,55 @@
+body, div, dl, dt, dd, ul, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, button, textarea, p, blockquote, th, td {
+    margin: 0;
+    padding: 0;
+}
+.article{
+    z-index: 2;
+    background-color: white;
+
+}
+.article_list{
+    padding: 10px 0px;
+    background-color: white;
+    display: flex;
+    border-bottom: 1px solid #f0f2f7;
+
+}
+.article_list div {
+    flex: none!important;
+    background-color: white!important;
+}
+.article_list .center center1{
+    height: 60px;
+    width: 10px;
+}
+.article_list .center .center1 .info,.article_list .center .center1 .title{
+    padding: 5px 15px;
+
+}
+.article_list .center .center1 .title{
+    width: 350px;
+}
+
+.article_list .right{
+    margin-left: 100px;
+
+}
+
+.temp2{
+    padding: 30px 20px;
+    background-color: #f6f6f6;
+
+}
+.temp2 input{
+    width: 36px;
+    height: 36px;
+    border: 0;
+    border-radius: 6px;
+    background-color: #fff;
+    color: #3951B3;
+    margin-right: 20px;
+    outline: none;
+}
+.temp2 .page{
+    width: 50px;
+}
