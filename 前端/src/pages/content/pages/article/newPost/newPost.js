@@ -33,7 +33,7 @@ function Aticles (props){
             title:item,
             content:context,
         }
-        let url =common.getUrl()+'article/add?token='+window.localStorage.getItem("token");
+        let url =common.getUrl()+'article/addArticle?token='+window.localStorage.getItem("token");
         axios.post(url,qs.stringify(data)).then(res => {
             console.log("新增信息",res)
             if (res.data.code === "SUCCESS") {
@@ -60,20 +60,12 @@ function Aticles (props){
                     onInput={(e)=>{
                         setcontext(e.target.value)
                     }}
-                    style={{height:"200px",width:"600%",outline:"none",borderColor:"#f6f6f6"}} placeholder={"请输入内容"}></textarea>
+                    style={{height:"400px",width:"600%",outline:"none",borderColor:"#f6f6f6"}} placeholder={"请输入内容"}></textarea>
             </div>
 
-            <div style={{marginTop:"150px"}} className={"item"}>
-                <input
-                    onInput={(e)=>{
-                        setbutton(e.target.value)
-                    }}
-                    style={{height:"30px",width:"500%",outline:"none",border:"none"}} placeholder={"请输入标签,以英文逗号,分割"}
 
-                />
-            </div>
             <div>
-                <input className={"button"} type={"button"} value={"提交"} style={{height:"30px",backgroundColor:"#06f",
+                <input className={"button"} type={"button"} value={"提交"} style={{marginTop:"400px",height:"30px",backgroundColor:"#06f",
                     lineHeight:"30px", color:"white",outline:"none",border:"none",borderRadius:"5px",}}
                        onClick={buttons}
                 />

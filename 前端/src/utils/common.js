@@ -1,18 +1,25 @@
-import React from "react";
+import React, {useState, useEffect,useCon} from 'react'
 import axios from "axios";
 import qs from 'qs'
 
 let value = null
 let common = {};
 
-
+let content = null;
 common.getUrl = function () {
     let url = "http://101.132.186.59:8082/"
-    // http://localhost:8082/
+    // let url ="http://localhost:8082/"
     return url
 }
-export default common
 
+
+export default common
+common.setContent = function (String){
+    content = String;
+}
+common.getContent = function () {
+    return content;
+}
 // //全局请求ajax
 // common.ajax = async function (url, params = {}, requestType = "get") {
 //     if (requestType === "post") {

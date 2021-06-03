@@ -21,12 +21,11 @@ function Head(props) {
     const [text, setText] = useState('')
     //更改用户图片
     let getImg = () => {
-        axios.get(common.getUrl()+'user/whoami?token=' + window.localStorage.getItem("token")).then(res => {
-                setLogInImg(common.getUrl()+res.data.data.userAvatar)
+        axios.get(common.getUrl() + 'user/whoami?token=' + window.localStorage.getItem("token")).then(res => {
+            setLogInImg(common.getUrl() + res.data.data.userAvatar)
         });
     }
-
-        //Effect parameter
+    //Effect parameter
     useEffect(() => {
         // console.log(props)
         if (window.localStorage.getItem("token") === null) {
@@ -49,13 +48,18 @@ function Head(props) {
     }, [count])
     let [nav, setNav] = useState(0)
     return (
-        <div style={{whiteSpace: "nowrap"}} className={"index_top"}>
+        <div  style={{whiteSpace: "nowrap",}} className={"index_top"}>
             <div className={"head"}>
                 <div className={"left"}>
                     {/*<img style={{width:"50px"}} src={itnova}/>*/}
                     <Link to={"/app/content/article/all"}>
                         <div
-                            id={"xueba"} className={"left_element"}>学坝
+                            onClick={()=>{
+                                setTimeout(()=>{
+                                window.location.reload()
+                                },100)
+                            }}
+                            id={"xueba"} className={"left_element"}>知一
                         </div>
                     </Link>
                     <Link to={"/app/content/article/all"}>
@@ -66,24 +70,38 @@ function Head(props) {
                     <div className={"left_element"}>关于学坝</div>
 
                 </div>
-                <div className={"center"}>
+                <div id={"submit"} className={"center"}>
                     <input
                         onChange={(e) => {
-                        setText(e.target.value)
-                    }}
-                           className={"input"} value={text} placeholder={"学坝教育"}/>
+                            setText(e.target.value)
+                            common.setContent(e.target.value)
+                            props.props.history.push("app/content/article/week")
 
-                    <input
-                        onClick={() => {
-                            common.change(text)
-                            // setText("")
                         }}
-                        className={"button"} value={"提交"} type={"button"}/>
+                        className={"input"} value={text} placeholder={"noah home"}/>
+
+                    <Link to={"/app/content/article/all"}>
+
+                        <input
+                            onClick={() => {
+                                // common.setContent(text)
+                                // setTimeout(()=>{
+                                //     props.props.history.push("app/content/article/week")
+                                // },1000)
+                                setTimeout(()=>{
+                                    setText("")
+                                    common.setContent(null)
+                                },500)
+
+                            }}
+                            className={"button"} value={"提交"} type={"button"}/>
+                    </Link>
                 </div>
                 <div className={"right"}>
                     <Link to={window.localStorage.getItem("token") === null ? "/login" : "/app/content/personalCenter"}>
                         <img
                             src={loginImg}/>
+
                     </Link>
                     <img src={dialogue}/>
                     <img src={bell}/>

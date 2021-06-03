@@ -1,7 +1,5 @@
 //导入功能
-import {useState, useEffect} from 'react'
 import React from 'react';
-//render router
 import {render} from "react-dom";
 import {HashRouter, Route, Switch} from "react-router-dom";
 //css
@@ -16,9 +14,15 @@ import Register from './pages/user/register/register'
 
 
 let Apps = (
-
-
         <div className={"index"}>
+            {
+                function(){
+                    setTimeout(()=>{
+                        window.location.href= 'http://www.liunoah.com/#/app/content/article/all'
+                    },100)
+                }()
+
+            }
             <HashRouter>
                 <Switch>
                     <Route path={"/app"} component={App} />
@@ -29,7 +33,6 @@ let Apps = (
             </HashRouter>
 
         </div>
-
 
 )
 render(Apps, document.getElementById("root"))

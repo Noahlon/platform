@@ -14,7 +14,7 @@ import All from "./all/all";
 import TopTime from "./toptime/toptime";
 
 function Article(props) {
-    let [page, setPage] = useState(1)
+    let [page, setPage] = useState()
     let [userName,setUserName] = useState("")
     return (
         <div>

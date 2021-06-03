@@ -1,5 +1,5 @@
 //导入功能
-import React, {useState, useEffect} from 'react'
+import React, {useState, useEffect, useRef} from 'react'
 import qs from 'qs'
 
 //css
@@ -25,8 +25,8 @@ const initialPost = {
 
 function Detail(props) {
     // 文章id
-    console.log("来到了id")
-    console.log("id", props.match.params.id)
+    const [replyNum,setReplyNum] = useState()
+    const [createUserAvatar,setCreateUserAvatar] = useState();
     const [id,setId] = useState(props.match.params.id)
     const [replyList, setReplyList] = useState([])
     const [content, setContent] = useState([])
@@ -36,16 +36,16 @@ function Detail(props) {
     // 通过id获取文章
     let getPost = (id) => {
         axios.post(common.getUrl()+'article/detail/' +id+ '?token=' + window.localStorage.getItem("token")).then(res => {
-            console.log(res.data.data)
-            setPost(res.data.data)
-            // post = {...res.data.data}
-            // setPost({...post})
-            // setReplyList(res.data.data)
+
+            setPost(res.data.data.article)
+            setCreateUserAvatar(common.getUrl()+res.data.data.createUserAvatar)
 
         });
         let url=common.getUrl()+'sys/replyList/' +id+ '?token=' + window.localStorage.getItem("token")
         axios.post(url).then(res =>{
-            setReplyList(res.data.data)
+            setReplyList(res.data.data.sysList)
+            setReplyNum(res.data.data.replySum)
+
         })
 
     }
@@ -57,12 +57,9 @@ function Detail(props) {
             receiveArticle:id,
             content:content
         }
-        console.log("id", id)
-        console.log("content", content)
         let url = common.getUrl()+"sys/reply/?"+'token=' + window.localStorage.getItem("token")
         axios.post(url,qs.stringify(data)).then(res => {
-            console.log(res.data.data)
-            console.log("提交的响应数据", res)
+
             alert("回复成功")
             setReplacePage(0)
         });
@@ -101,7 +98,7 @@ function Detail(props) {
                             }}
                             width={"30px"} src={comment}/>
                         <div>
-                            {post.commentNum}
+                            {replyNum}
                             条评论
                         </div>
                     </div>
@@ -118,25 +115,25 @@ function Detail(props) {
             <div className={"temp"}></div>
 
             {/*更换层*/}
-            <div className={"text"}>
+            <div  className={"text"}>
                 {/*context层*/}
                 <div className={"text_top_top"} style={{display: replacePage === 0 ? "flex" : "none"}}>
-                    <img width={"38px"} height={"38px"} src={common.getUrl()+post.userAvatar}/>
+                    <img width={"38px"} height={"38px"} src={createUserAvatar}/>
                     <div className={"text_top"}>
                         <span>{post.nickname}</span>
                         <p>{post.username}</p>
                     </div>
                 </div>
                 <div style={{display: replacePage === 0 ? "flex" : "none"}} className={"text_center"}>
-                <span style={{lineHeight: "30px", fontSize: "15px", color: '#121212',}}>
-                    {post.content}
-                </span>
+                <textarea defaultValue={post.content}   style={{height:"400px",width:"600%",outline:"none",borderColor:"#f6f6f6",lineHeight:"30px"}} />
+                {/*    {post.content}*/}
+                {/*</textarea>*/}
                 </div>
             </div>
 
             {/*// 回复层*/}
             <div className={"text_top_top"} style={{display: replacePage === 1 ? "" : "none"}}>
-                <textarea value={content}
+                <textarea defaultValue={content}
                           onInput={(e) => {
                               setContent(e.target.value)
                           }}
@@ -148,7 +145,7 @@ function Detail(props) {
                               outline: "none",
                               border: 'none',
                               lineHeight: '30px'
-                          }} placeholder={"请输入评论内容"}/>
+                          }} placeholder={"请输入评论内容"}></textarea>
                 <div>
 
                     <button style={{
@@ -180,7 +177,7 @@ function Detail(props) {
                             <div key={index + "div"} className={"article"}>
                                 <div className={"article_list"}>
                                     <div className={"left"}>
-                                        <img style={{width: "60px",}} src={item.userAvatar}/>
+                                        <img style={{width: "60px",}} src={common.getUrl()+item.avatar}/>
                                     </div>
                                     <div>
                                         <div style={{display: "flex"}}>
@@ -194,18 +191,18 @@ function Detail(props) {
 
                                                 </div>
                                                 {/*</Link>*/}
-                                            <div style={{paddingLeft: "10px"}}>
-                                                level
-
-
+                                            <div style={{fontSize:"15px",fontWeight:"300"}}>
+                                                {item.nickname}
                                             </div>
-                                            <div style={{paddingLeft: "10px"}}>
+                                            <div style={{marginLeft:"400px",fontSize:"10px"}}>
                                                 {
-                                                    item.createTime
+                                                    item.createTime.substring(0,10)+" "+
+                                                    item.createTime.substring(11,19)
                                                 }
                                             </div>
                                         </div>
-                                        <div style={{marginTop: "20px"}}>
+                                        <div  style={{wordWrap:"break-word",width:"550px",lineHeight:"30px",
+                                            fontSize:"12px",fontWeight:"300",marginLeft:"20px",marginTop:"15px"}}>
                                             {item.content}
                                         </div>
                                     </div>

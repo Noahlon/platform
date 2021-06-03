@@ -9,7 +9,7 @@ import './register.css';
 import common from "../../../utils/common";
 //package
 //img
-function Login(props) {
+function Register(props) {
     //Effect parameter
     //底部按钮
     const [buttonValue, setValue] = useState("注册");
@@ -40,8 +40,8 @@ function Login(props) {
             axios.post(url,qs.stringify(data)).then(res => {
                 console.log(res)
                 if (res.data.code === "SUCCESS"){
-                    props.history.push("/app/content/article")
                     window.localStorage.setItem("token",res.data.data)
+                    props.history.push("/app/content/article/all")
                 }
                 setLogin(res.data.message)
             });
@@ -121,4 +121,4 @@ function Login(props) {
     )
 }
 
-export default Login;
+export default Register;

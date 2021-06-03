@@ -9,7 +9,7 @@ import './login.css';
 //package
 import common from "../../../utils/common";
 //img
-function Register(props) {
+function Login(props) {
     //Effect parameter
     //底部按钮
     const [buttonValue, setValue] = useState("登录");
@@ -115,4 +115,4 @@ function Register(props) {
     )
 }
 
-export default Register;
+export default Login;
